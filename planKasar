@@ -1,0 +1,74 @@
+PEMROGRAMAN LINEAR SOLUTION
+==========================
+
+PRODUCT OVERVIEW
+----------------
+Application name : PEMROGRAMAN LINEAR SOLUTION
+Developer        : ALFANDOXEON
+GitHub           : ALFANDOXEON
+Language         : PYTHON
+Interface        : INTERACTIVE CLI BUILT WITH RICH
+Application UI   : ENGLISH
+Architecture     : MVC AND OBJECT-ORIENTED DESIGN
+
+PURPOSE
+-------
+An interactive command-line application for defining, solving, and reviewing
+linear programming problems commonly encountered in coursework.
+
+CORE USER EXPERIENCE
+--------------------
+- Guide users through entering an objective function, constraints, and variable
+  domains. Users choose the number and names of variables and constraints and
+  enter all coefficients and right-hand-side values themselves.
+- Support maximization and minimization, and <=, >=, and = constraints.
+- Start with non-negative variables as the default; make variable domains and
+  bounds explicit and configurable rather than silently assuming them.
+- Show a clear summary of the model and let users confirm or edit it before
+  solving.
+- Report the result, status, and useful solving steps. Clearly distinguish
+  optimal, infeasible, unbounded, and numerically inconclusive problems.
+- Allow users to solve another problem or return to the main menu without
+  restarting the application.
+
+CLI DESIGN
+----------
+- Use RICH for styled panels, tables, prompts, progress/status messages, and
+  terminal-aware layout.
+- Use uppercase for all application-owned visible text. Preserve user-entered
+  mathematical labels and values where changing them would alter the model.
+- Do not use emoji.
+- Keep an application-and-developer header and a footer/navigation area visible
+  in each screen. Clear/redraw the terminal when moving between screens.
+- Adapt layout to terminal width; avoid relying on fixed-width output.
+- Keep colors decorative: statuses and instructions must remain understandable
+  without color.
+
+ENGINEERING REQUIREMENTS
+------------------------
+- Use Python with an MVC structure and object-oriented domain types.
+- Separate presentation, input validation, problem representation, solving,
+  and result formatting.
+- Validate every user-controlled input, including counts, names, numeric values,
+  operators, and variable domains. Give actionable English error messages and
+  allow correction without losing previously entered data.
+- Handle invalid, incomplete, infeasible, unbounded, and numerically difficult
+  models explicitly. Do not report a successful solution when none was found.
+- Keep the solver independent of the CLI so it can be tested directly.
+
+INITIAL SCOPE
+-------------
+- Define one linear objective with a user-selected direction.
+- Define a configurable number of linear constraints and decision variables.
+- Solve supported models with a documented simplex-based method; account for
+  mixed constraint directions and equality constraints.
+- Present the optimal objective value and variable values, plus a concise
+  explanation of the outcome.
+
+OUT OF SCOPE FOR THE FIRST RELEASE
+----------------------------------
+- Graphical interface, file/database persistence, and nonlinear or integer
+  programming.
+- Custom finite variable bounds.
+- Claims of exact arithmetic or support for every numerically ill-conditioned
+  model. Numerical limits and solver status must be documented.

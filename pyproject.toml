@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pemrograman-linear-solution"
+version = "0.1.0"
+description = "An interactive CLI for solving linear programming problems."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["rich>=13.7"]
+
+[project.scripts]
+pls = "pemrograman_linear_solution.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
