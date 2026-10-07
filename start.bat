@@ -1,6 +1,9 @@
 @echo off
 setlocal
 cd /d "%~dp0"
+chcp 65001 >nul 2>&1
+set "PYTHONIOENCODING=utf-8"
+set "PYTHONUTF8=1"
 
 set "VENV_PYTHON=%~dp0.venv\Scripts\python.exe"
 if exist "%VENV_PYTHON%" goto check_rich
@@ -43,6 +46,7 @@ if errorlevel 1 (
 )
 
 set "PYTHONPATH=%~dp0src"
+cls
 "%VENV_PYTHON%" -m pemrograman_linear_solution
 set "APP_EXIT_CODE=%ERRORLEVEL%"
 

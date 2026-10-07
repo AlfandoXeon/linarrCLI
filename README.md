@@ -1,59 +1,80 @@
-# PEMROGRAMAN LINEAR SOLUTION
+# PEMROGRAMAN LINEAR SOLUTION (PRO SUITE v2.0)
 
-An interactive, English-language CLI for entering and solving linear
-programming problems. Built with Python, Rich, MVC separation, and a
-self-contained two-phase simplex solver.
+A luxurious, interactive CLI application for formulating, solving, and analyzing linear programming problems. Built with Python, Rich, MVC architecture, and an independent Two-Phase Simplex solver.
+
+Developed by: **ALFANDOXEON**
+
+---
+
+## Features & Highlights
+
+- **Luxurious & Colorful Terminal UI**:
+  - Full-screen cyber-gold and royal neon aesthetic powered by the Rich engine.
+  - Interactive **Navbar** with active module indicators and breadcrumb navigation.
+  - Informative **Footer** with contextual shortcuts and real-time system status.
+  - Executive **KPI Metric Cards** displaying optimal value ($Z^*$), solver status, pivot count, and model dimensions.
+- **Two-Phase Simplex Solver**:
+  - Solves Maximization and Minimization problems.
+  - Supports mixed constraints (`<=`, `>=`, `=`) and negative right-hand-side (RHS) normalization.
+  - Handles non-negative variables ($x \ge 0$) and unrestricted free variables ($x = x^+ - x^-$).
+  - Explicit diagnostic statuses: `OPTIMAL`, `INFEASIBLE`, `UNBOUNDED`, `ITERATION_LIMIT`, and `NUMERICAL_FAILURE`.
+- **Business & Sensitivity Analytics**:
+  - Identifies **Binding Constraints (Bottlenecks)** where resources are 100% exhausted.
+  - Identifies **Non-Binding Constraints (Idle/Slack)** with resource utilization percentages.
+  - Variable contribution share breakdown to optimal objective value.
+- **Curated Preset Problem Library**:
+  - Includes 5 classic coursework scenarios: Furniture Mix, Hospital Diet, Chemical Blending, Infeasible Contradiction Study, and Unbounded Ray Study.
+- **Interactive LP Theory & Guide**:
+  - Built-in educational knowledge base explaining LP foundations, standard forms, Two-Phase Simplex mechanics, and sensitivity analysis.
+- **Full Pivot Trace Transparency**:
+  - Inspect Phase I and Phase II pivot iterations step-by-step (Entering variable, Leaving variable, Pivot element).
+
+---
 
 ## Requirements
 
 - Python 3.10 or newer
-- Internet access for the initial Rich dependency installation
+- Windows 10/11 (or Linux/macOS with UTF-8 terminal)
+- Internet connection for initial `rich` dependency installation
 
-## Install and run
+---
 
-On Windows, double-click `start.bat` in the project root. On first launch it
-creates a local `.venv`, installs Rich if needed, and starts the CLI.
+## Installation and Launch
 
-To start it manually after installing the package:
+### Quick Launch on Windows (Recommended)
+Double-click `start.bat` in the project root directory. It automatically:
+1. Configures UTF-8 encoding.
+2. Initializes a local `.venv` if not already present.
+3. Installs `rich` and registers the package in editable mode.
+4. Starts the interactive CLI.
 
+### Manual Launch via PowerShell
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
-python -m pip install -e .
+pip install -e .
 pls
 ```
 
-Alternatively, launch without installing the console command:
-
+Or run directly without console script registration:
 ```powershell
 python -m pemrograman_linear_solution
 ```
 
-## Supported models
+---
 
-- Maximize or minimize one linear objective.
-- Enter any number of decision variables (up to 20) and constraints (up to 50).
-- Constraint relations: `<=`, `>=`, and `=`.
-- Variable domains: non-negative (`x >= 0`, the default) or unrestricted.
-- Optimal, infeasible, unbounded, iteration-limit, and numerical-failure
-  statuses are distinguished.
-- The solver reports variable values, objective value, constraint slack or
-  surplus, and a readable two-phase simplex pivot trace.
+## Testing
 
-Unrestricted variables are represented internally as the difference of two
-non-negative variables. The solver uses floating-point arithmetic with a
-`1e-9` tolerance and a finite iteration limit. As with other floating-point
-simplex implementations, results for ill-conditioned models may be
-numerically inconclusive.
-
-Integer programming, nonlinear optimization, persistence, and custom finite
-lower/upper bounds are not supported in this first release.
-
-## Tests
-
-Run the standard-library test suite from the project root:
+Run the full test suite (14 tests covering Two-Phase Simplex, bounds, numerical failure, validation, and preset scenarios):
 
 ```powershell
-$env:PYTHONPATH = "src"
 python -m unittest discover -s tests -v
 ```
+
+---
+
+## Developer & Credits
+
+- **Developer**: ALFANDOXEON
+- **GitHub**: [ALFANDOXEON](https://github.com/ALFANDOXEON)
+- **Suite**: PEMROGRAMAN LINEAR SOLUTION PRO SUITE v2.0
