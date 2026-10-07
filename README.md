@@ -28,6 +28,10 @@ Developed by: **ALFANDOXEON**
   - Built-in educational knowledge base explaining LP foundations, standard forms, Two-Phase Simplex mechanics, and sensitivity analysis.
 - **Full Pivot Trace Transparency**:
   - Inspect Phase I and Phase II pivot iterations step-by-step (Entering variable, Leaving variable, Pivot element).
+- **Built-in Quick Calculator (Kalkulator Matematika Cepat)**:
+  - Safe arithmetic and math function evaluator (`+`, `-`, `*`, `/`, `//`, `%`, `**`, `sqrt`, `cbrt`, `log`, `abs`, `round`, `sin`, `cos`, `factorial`).
+  - Automatic conversion to exact and mixed fractions (e.g. `15/4 [3 3/4]`), ideal for Simplex tableau pivot ratio calculations.
+  - Calculation history log and `ans` memory for chained calculations.
 
 ---
 

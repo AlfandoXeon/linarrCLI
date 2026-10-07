@@ -5,6 +5,7 @@ from rich.prompt import Prompt
 from rich.table import Table
 from rich.text import Text
 
+from pemrograman_linear_solution.controllers.calculator_controller import CalculatorController
 from pemrograman_linear_solution.controllers.problem_controller import ProblemController
 from pemrograman_linear_solution.views.console import ConsoleView
 from pemrograman_linear_solution.views.guide import GuideView
@@ -14,6 +15,7 @@ class Application:
     def __init__(self, view: ConsoleView | None = None) -> None:
         self.view = view or ConsoleView()
         self.problem_controller = ProblemController(self.view)
+        self.calculator_controller = CalculatorController(self.view)
         self.guide_view = GuideView(self.view)
 
     def run(self) -> None:
@@ -114,6 +116,11 @@ class Application:
             )
             menu.add_row(
                 " [4] ",
+                "KALKULATOR MATEMATIKA CEPAT (QUICK CALCULATOR)",
+                "Kalkulator pembantu perhitungan aritmatika, pecahan, dan fungsi matematika",
+            )
+            menu.add_row(
+                " [5] ",
                 "TENTANG APLIKASI & SISTEM (ABOUT & SPECS)",
                 "Informasi teknis mesin solver, spesifikasi algoritma, dan profil developer",
             )
@@ -125,13 +132,13 @@ class Application:
 
             self.view.console.print(menu)
             self.view.footer(
-                hints=[("1-4", "PILIH MENU"), ("0", "KELUAR")],
+                hints=[("1-5", "PILIH MENU"), ("0", "KELUAR")],
                 status="STANDBY",
             )
 
             choice = Prompt.ask(
-                "MASUKKAN PILIHAN MENU [0-4]",
-                choices=("0", "1", "2", "3", "4"),
+                "MASUKKAN PILIHAN MENU [0-5]",
+                choices=("0", "1", "2", "3", "4", "5"),
                 console=self.view.console,
             )
 
@@ -145,6 +152,8 @@ class Application:
             elif choice == "3":
                 self.guide_view.open_guide()
             elif choice == "4":
+                self.calculator_controller.run()
+            elif choice == "5":
                 self._show_about()
 
     def _show_about(self) -> None:

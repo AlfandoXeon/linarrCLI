@@ -14,7 +14,8 @@ class ConsoleView:
         ("BUILDER", "2", "BUAT MODEL"),
         ("PRESETS", "3", "PRESET KASUS"),
         ("GUIDE", "4", "PANDUAN TEORI"),
-        ("ABOUT", "5", "TENTANG"),
+        ("CALC", "5", "KALKULATOR"),
+        ("ABOUT", "6", "TENTANG"),
     ]
 
     def __init__(self, console: Console | None = None) -> None:
